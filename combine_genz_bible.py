@@ -8,25 +8,29 @@ def combine_genz_bible():
     genz_bible_dir = Path("genz_bible")
     output_file = "GENZ_Bible_Complete.txt"
     
-    # Bible book order (standard order)
+    # Bible book order (standard 66 books)
     old_testament_books = [
         "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy",
-        "Joshua", "Judges", "Ruth", "Samuel", "Kings", "Chronicles",
-        "Ezra", "Nehemiah", "Esther", "Job", "Psalm", "Proverbs",
-        "Ecclesiastes", "Isaiah", "Jeremiah", "Lamentations", "Ezekiel",
-        "Daniel", "Hosea", "Joel", "Amos", "Obadiah", "Jonah", "Micah",
-        "Nahum", "Habakkuk", "Zephaniah", "Haggai", "Zechariah", "Malachi"
+        "Joshua", "Judges", "Ruth", "1 Samuel", "2 Samuel",
+        "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles", "Ezra",
+        "Nehemiah", "Esther", "Job", "Psalm", "Proverbs",
+        "Ecclesiastes", "Song of Solomon", "Isaiah", "Jeremiah", "Lamentations",
+        "Ezekiel", "Daniel", "Hosea", "Joel", "Amos",
+        "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk",
+        "Zephaniah", "Haggai", "Zechariah", "Malachi"
     ]
     
     new_testament_books = [
-        "Matthew", "Mark", "Luke", "John", "Acts", "Romans",
-        "Corinthians", "Galatians", "Ephesians", "Philippians", "Colossians",
-        "Thessalonians", "Timothy", "Titus", "Philemon", "Hebrews",
-        "James", "Peter", "John", "Jude", "Revelation"
+        "Matthew", "Mark", "Luke", "John", "Acts",
+        "Romans", "1 Corinthians", "2 Corinthians", "Galatians", "Ephesians",
+        "Philippians", "Colossians", "1 Thessalonians", "2 Thessalonians", "1 Timothy",
+        "2 Timothy", "Titus", "Philemon", "Hebrews", "James",
+        "1 Peter", "2 Peter", "1 John", "2 John", "3 John",
+        "Jude", "Revelation"
     ]
     
     # Get actual book directories
-    actual_books = sorted([d.name for d in genz_bible_dir.iterdir() if d.is_dir()])
+    actual_books = [d.name for d in genz_bible_dir.iterdir() if d.is_dir()]  # we'll order by canonical lists above
     
     print("Creating complete GENZ Bible...")
     
@@ -41,21 +45,13 @@ def combine_genz_bible():
         f.write("OLD TESTAMENT\n")
         f.write("=" * 50 + "\n\n")
         
-        for book in actual_books:
-            if book in ["Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy",
-                       "Joshua", "Judges", "Ruth", "Samuel", "Kings", "Chronicles",
-                       "Ezra", "Nehemiah", "Esther", "Job", "Psalm", "Proverbs",
-                       "Ecclesiastes", "Isaiah", "Jeremiah", "Lamentations", "Ezekiel",
-                       "Daniel", "Hosea", "Joel", "Amos", "Obadiah", "Jonah", "Micah",
-                       "Nahum", "Habakkuk", "Zephaniah", "Haggai", "Zechariah", "Malachi"]:
-                
+        for book in old_testament_books:
+            if book in actual_books:
                 book_dir = genz_bible_dir / book
                 chapter_files = sorted(book_dir.glob("chapter_*.txt"))
-                
                 if chapter_files:
                     f.write(f"\n{book.upper()}\n")
                     f.write("-" * len(book) + "\n\n")
-                    
                     for chapter_file in chapter_files:
                         with open(chapter_file, "r", encoding="utf-8") as cf:
                             content = cf.read()
@@ -67,19 +63,13 @@ def combine_genz_bible():
         f.write("NEW TESTAMENT\n")
         f.write("=" * 50 + "\n\n")
         
-        for book in actual_books:
-            if book in ["Matthew", "Mark", "Luke", "John", "Acts", "Romans",
-                       "Corinthians", "Galatians", "Ephesians", "Philippians", "Colossians",
-                       "Thessalonians", "Timothy", "Titus", "Philemon", "Hebrews",
-                       "James", "Peter", "John", "Jude", "Revelation"]:
-                
+        for book in new_testament_books:
+            if book in actual_books:
                 book_dir = genz_bible_dir / book
                 chapter_files = sorted(book_dir.glob("chapter_*.txt"))
-                
                 if chapter_files:
                     f.write(f"\n{book.upper()}\n")
                     f.write("-" * len(book) + "\n\n")
-                    
                     for chapter_file in chapter_files:
                         with open(chapter_file, "r", encoding="utf-8") as cf:
                             content = cf.read()

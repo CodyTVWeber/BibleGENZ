@@ -26,11 +26,12 @@ def split_bible():
         if not line or line.startswith("WEB") or line.startswith("World English Bible"):
             continue
             
-        # Check if this is a verse line (format: Book Chapter:Verse    Text)
-        verse_match = re.match(r'^([A-Za-z]+)\s+(\d+):(\d+)\s+(.+)$', line)
+        # Check if this is a verse line (format: Book Name Chapter:Verse    Text)
+        # Supports multi-word and numbered book names like "1 Samuel", "Song of Solomon"
+        verse_match = re.match(r'^(.+?)\s+(\d+):(\d+)\s+(.+)$', line)
         
         if verse_match:
-            book_name = verse_match.group(1)
+            book_name = verse_match.group(1).strip()
             chapter_num = int(verse_match.group(2))
             verse_num = int(verse_match.group(3))
             verse_text = verse_match.group(4)
