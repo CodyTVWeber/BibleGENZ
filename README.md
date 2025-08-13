@@ -26,4 +26,6 @@ Exports (for Bible software):
 
 Historical docs and prior plans have been archived under `docs/`.
 
+See `CONTRIBUTING.md` to help refine slang and tone.
+
 
