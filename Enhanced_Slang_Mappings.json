@@ -8,6 +8,7 @@
     "prayer": "talking to God",
     "worship": "giving props",
     "holy": "set apart",
+    "set apart": "yeeted",
     "righteous": "doing what's right",
     "salvation": "getting saved",
     "eternal life": "living forever",
@@ -15,11 +16,17 @@
     "prophet": "God's messenger",
     "disciple": "Jesus' crew",
     "apostle": "Jesus' main squad",
+    "apostles": "Jesus broskies",
+    "saints": "holy fam",
+    "ungodly": "bad ones",
     "covenant": "God's promise",
     "sacrifice": "giving it up",
     "temple": "God's house",
     "altar": "prayer spot",
-    "offering": "giving to God"
+    "offering": "giving to God",
+    "anointed one": "the big Holy",
+    "brother": "fam bro",
+    "brethren": "fam bros"
   },
   "Emotional_Descriptive_Terms": {
     "rejoice": "be hyped",
@@ -41,7 +48,8 @@
     "wise": "smart",
     "foolish": "dumb",
     "brave": "built different",
-    "afraid": "scared"
+    "afraid": "scared",
+    "gentle": "nice-nice"
   },
   "Action_Terms": {
     "go": "slide",
@@ -75,6 +83,11 @@
     "really": "fr fr",
     "actually": "deadass",
     "certainly": "for sure",
+    "throw down": "big drop",
+    "mockers": "Big meanies",
+    "you": "ya",
+    "pitch-black": "deep black",
+    "pitch black": "deep black",
     "maybe": "maybe",
     "never": "never",
     "always": "always",
@@ -85,7 +98,8 @@
     "now": "now",
     "then": "then",
     "here": "here",
-    "there": "there"
+    "there": "there",
+    "sus behavior": "big sus"
   },
   "Biblical_Phrases": {
     "in the beginning": "at the start",
@@ -101,7 +115,11 @@
     "abba": "dad",
     "rabbi": "teacher",
     "messiah": "savior",
-    "christ": "anointed one",
+    "christ": "the big Holy",
+    "the only wise One": "the max Wise",
+    "the Boss": "Boss",
+    "the big Holy": "big Holy",
+    "the max Wise": "max Wise",
     "lord": "boss",
     "master": "boss",
     "servant": "helper",
